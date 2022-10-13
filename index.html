@@ -1,0 +1,325 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Festive Bake</title>
+
+    <style>
+        @font-face {
+            font-family: 'AdiHaus';
+            src: url('https://assets.codepen.io/6060109/adihaus_regular.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: "AdiHaus";
+            src: url("https://assets.codepen.io/6060109/adihaus_bold.ttf") format("truetype");
+            font-weight: bold;
+            font-style: normal;
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+            border-style: none;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            text-decoration: none;
+        }
+
+        :root {
+            --theme-color-black: #333333; /* rgba(51, 51, 51, 1) */
+            --theme-color-brown: #423A3A;
+            --theme-color-red: #000;
+            --theme-color-white: #FEFFFF; /* rgba(254, 255, 255, 1) */
+        }
+
+        /* ---------- MAIN BODY DECLERATIONS ---------- */
+
+        html, body {
+            background-color: var(--theme-color-white);
+            font-family: "AdiHaus";
+            font-size: 14px;
+            height: 100%;
+            width: 100%;
+        }
+
+        input {
+            font-family: 'AdiHaus';
+        }
+
+        .mobile-container {
+            padding: 30px 0;
+            margin: 0 auto;
+            max-width: 500px;
+            min-width: 300px;
+        }
+
+        .hero-image-desktop {
+            display: none;
+        }
+
+        /* ---------- HERO BANNER DECLERATIONS ---------- */
+        .hero-banner {
+            align-items: center;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .hero-banner .logo-wrapper {
+            height: auto;
+            margin: 0 auto;
+            padding: 1rem 0;
+            width: auto;
+        }
+
+        .logo-wrapper img {
+            display: block;
+            height: 2.5rem;
+            margin: 0 auto;
+            width: auto;
+        }
+
+        .hero-banner .hero-image {
+          display: none;
+        }
+
+        /* ---------- TEXT INFO DECLERATIONS ---------- */
+        .text-info {
+            align-items: center;
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            width: 100%;
+            padding-top: 100px;
+        }
+
+        .text-info > * {
+            padding: 0 2.5rem 1rem;
+        }
+
+        /* intended for the first h2 within .text-info */
+        .text-info h2:nth-child(1) {
+            color: var(--theme-color-red);
+            font-weight: normal;
+            padding-top: 1.8rem;
+            padding-bottom: 1rem;
+        }
+
+        .text-info h2 {
+            font-size: 3.5rem;
+            font-weight: bold;
+            color: var(--theme-color-brown);
+            letter-spacing: 5px;
+            text-transform: uppercase;
+        }
+
+        .text-info p {
+            color: var(--theme-color-black);
+            line-height: 24px;
+        }
+
+        .text-info .email-signup {
+            margin: 1rem 0 6rem;
+            position: relative;
+            width: 100%;
+        }
+
+        .email-signup .email-input {
+            border: 1px solid rgba(51, 51, 51, .7);
+            border-radius: 3px;
+            padding: 1rem 1.5rem;
+            opacity: .5;
+            width: 100%;
+        }
+
+        .email-signup .email-input:focus {
+            background-color: var(--theme-color-white);
+            outline: 2px solid var(--theme-color-black);
+            opacity: 1;
+        }
+
+        .email-signup .email-submit {
+            background-color: var(--theme-color-black);
+            border-bottom: 1px solid var(--theme-color-black);
+            border-radius: 2px;
+            color: var(--theme-color-white);
+            cursor: pointer;
+            font-weight: bold;
+            opacity: 1;
+            padding: 1rem 1.5rem;
+            position: absolute;
+            right: 0;
+            margin-right: 2.5rem;
+            z-index: 10;
+        }
+
+        @media only screen and (min-width: 768px) {
+            body {
+                background-image: url('themse/destop-bg.webp');
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: cover;
+                display: flex;
+                flex-direction: row;
+                height: 100%;
+            }
+
+            main {
+                display: flex;
+                flex-direction: column;
+                height: inherit;
+                max-width: 100%;
+                margin: 0 auto;
+                padding-left: 0;
+            }
+
+            .mobile-container {
+                width: 45vw;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-around;
+            }
+
+            .hero-banner .logo-wrapper {
+                margin-left: 3.5rem;
+                width: 100%;
+                display: flex;
+                align-items: start;
+                flex-direction: column;
+            }
+            .logo-wrapper img {
+                margin: 0 0 0;
+                padding-left: 2.5rem;
+            }
+
+            .hero-image {
+                display: none;
+            }
+
+            .text-info {
+                text-align: left;
+                align-items: start;
+                padding-top: 0;
+            }
+
+            .text-info h2 {
+                font-size: 4.5rem;
+            }
+
+            .text-info p {
+                font-size: 16px;
+            }
+
+            .text-info input {
+                font-size: 16px;
+            }
+
+            .text-info .email-signup {
+                margin: 1rem 0 7rem;
+            }
+
+            .hero-image-desktop {
+                display: block;
+                height: 100%;
+                width: 55vw;
+            }
+
+            .hero-image-desktop img {
+                clip-path: polygon(0 0, 100% 0, 100% 100%, 30% 100%);
+                height: 100%;
+                object-fit: cover;
+                width: 100%;
+            }
+
+            .email-signup .email-submit {
+                border-bottom: 2px solid var(--theme-color-black);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="mobile-container">
+        <header>
+            <section class="hero-banner">
+                <div class="logo-wrapper">
+                    <svg height="120px" viewBox="0 0 121 69" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                        <title>Group 4</title>
+                        <defs>
+                            <polygon id="path-1" points="2.8449465e-16 -4.4408921e-16 11.927 -4.4408921e-16 11.927 17.092 2.8449465e-16 17.092"></polygon>
+                            <polygon id="path-3" points="2.615963e-15 -1.2490009e-15 120.685 -1.2490009e-15 120.685 42.89 2.615963e-15 42.89"></polygon>
+                            <polygon id="path-5" points="0 0 120.685 0 120.685 42.89 0 42.89"></polygon>
+                        </defs>
+                        <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                            <g id="Group-4">
+                                <g id="Clipped" transform="translate(0.055000, 0.262000)">
+                                    <mask id="mask-2" fill="white">
+                                        <use xlink:href="#path-1"></use>
+                                    </mask>
+                                    <g id="logo-a"></g>
+                                    <polyline id="Path" fill="#1A1919" fill-rule="nonzero" mask="url(#mask-2)" points="11.927 -4.4408921e-16 11.927 2.229 7.282 2.229 7.282 17.092 4.569 17.092 4.569 2.229 -0.055 2.229 -0.055 -4.4408921e-16 11.927 -4.4408921e-16"></polyline>
+                                </g>
+                                <polyline id="Path" fill="#1A1919" fill-rule="nonzero" points="27 0 27 17 24.337 17 24.337 9.367 16.642 9.367 16.642 17 14 17 14 0 16.642 0 16.642 7.128 24.337 7.128 24.337 0 27 0"></polyline>
+                                <polyline id="Path" fill="#1A1919" fill-rule="nonzero" points="33.821 2.216 33.821 7.369 40.257 7.369 40.257 9.487 33.821 9.487 33.821 14.76 41 14.76 41 17 31 17 31 0 41 0 41 2.216 33.821 2.216"></polyline>
+                                <g id="Group" transform="translate(25.000000, 26.000000)" fill="#1A1919" fill-rule="nonzero">
+                                    <g id="Group-3">
+                                        <polyline id="Path" points="10 0 10 2.215 2.733 2.215 2.733 7.488 8.729 7.488 8.729 9.609 2.733 9.609 2.733 17 0 17 0 0 10 0"></polyline>
+                                        <polyline id="Path" points="15.823 2.215 15.823 7.369 22.257 7.369 22.257 9.487 15.823 9.487 15.823 14.762 23 14.762 23 17 13 17 13 0 23 0 23 2.215 15.823 2.215"></polyline>
+                                        <path d="M35.3837994,14.6806873 C34.9739634,15.3791533 34.3490839,15.940322 33.5110897,16.3651146 C32.6740598,16.7880644 31.6460945,17 30.4320154,17 C29.2487946,17 28.1890068,16.8009648 27.2526519,16.3992086 C26.316297,16.0002168 25.5689489,15.4381267 25.0106075,14.7166242 C24.4513018,13.9951217 24.1301832,13.1612011 24.048216,12.2203913 L27.0559306,12.2203913 C27.1378978,12.9418939 27.4628737,13.5629573 28.0289296,14.0808174 C28.5949855,14.597756 29.3548698,14.856686 30.3085824,14.856686 C31.1620058,14.856686 31.8235294,14.6373787 32.2912247,14.1978427 C32.7598843,13.7592281 32.9942141,13.1943737 32.9942141,12.5032793 C32.9942141,11.9070952 32.8216008,11.4159575 32.4763742,11.0307876 C32.1311475,10.6474606 31.7039537,10.345222 31.195757,10.1240718 C30.6856316,9.9056859 29.9884282,9.6541276 29.1012536,9.3712396 C28.0163934,9.0422787 27.1330762,8.7123963 26.4513018,8.3815925 C25.7695275,8.0526316 25.1909354,7.5734728 24.7145612,6.9450377 C24.2381871,6.3193669 24,5.494661 24,4.4746057 C24,3.5780259 24.2295082,2.7929427 24.6904532,2.1184346 C25.1494696,1.4439265 25.807136,0.9214592 26.6605593,0.5528755 C27.514947,0.1833704 28.5004822,0 29.6181292,0 C31.3924783,0 32.80135,0.4091279 33.8447445,1.2236978 C34.8871745,2.041032 35.4831244,3.1080817 35.6306654,4.4257683 L32.6007715,4.4257683 C32.485053,3.7991761 32.1764706,3.261044 31.6759884,2.8132148 C31.1745419,2.3653857 30.487946,2.1414711 29.6181292,2.1414711 C28.8302797,2.1414711 28.1967213,2.334056 27.7203472,2.719226 C27.243973,3.1043959 27.0067502,3.6572714 27.0067502,4.3787739 C27.0067502,4.9436284 27.1706847,5.4117296 27.4995178,5.7812348 C27.8273867,6.1498184 28.2420444,6.4400781 28.7434908,6.6520137 C29.243973,6.8630278 29.9296046,7.1109003 30.8003857,7.3937883 C31.9016393,7.7227492 32.80135,8.055396 33.4985535,8.3944929 C34.1976856,8.7326684 34.7888139,9.2219633 35.2729026,9.8660632 C35.7569913,10.5092417 36,11.3560627 36,12.4092905 C36,13.2247818 35.7945998,13.9822213 35.3837994,14.6806873" id="Path"></path>
+                                        <polyline id="Path" points="49 0 49 2.215 44.347 2.215 44.347 17 41.63 17 41.63 2.215 37 2.215 37 0 49 0"></polyline>
+                                        <polygon id="Path" points="51 17 54 17 54 0 51 0"></polygon>
+                                        <polyline id="Path" points="60.029 0 64.989 14.063 69.972 0 73 0 66.771 17 63.205 17 57 0 60.029 0"></polyline>
+                                    </g>
+                                </g>
+                                <g id="Clipped" transform="translate(0.056000, 26.033000)">
+                                    <mask id="mask-4" fill="white">
+                                        <use xlink:href="#path-3"></use>
+                                    </mask>
+                                    <g id="logo-c"></g>
+                                    <polygon id="Path" fill="#1A1919" fill-rule="nonzero" mask="url(#mask-4)" points="102.788 7.31 108.971 7.31 108.971 9.411 102.788 9.411 102.788 14.644 109.685 14.644 109.685 16.864 100.076 16.864 100.076 3.55271368e-15 109.685 3.55271368e-15 109.685 2.197 102.788 2.197"></polygon>
+                                </g>
+                                <g id="Clipped" transform="translate(0.056000, 26.033000)">
+                                    <mask id="mask-6" fill="white">
+                                        <use xlink:href="#path-5"></use>
+                                    </mask>
+                                    <g id="logo-c"></g>
+                                    <g id="Group-2" mask="url(#mask-6)" fill="#1A1919" fill-rule="nonzero">
+                                        <g transform="translate(-0.056000, 25.967000)">
+                                            <path d="M8.52677692,13.9722391 C9.08989231,13.5029783 9.37098462,12.8458261 9.37098462,12.0007826 C9.37098462,11.1576087 9.08616923,10.4967174 8.51467692,10.0199783 C7.94411538,9.5413696 7.14365385,9.3020652 6.11236154,9.3020652 L2.71133077,9.3020652 L2.71133077,14.6770652 L6.13749231,14.6770652 C7.16692308,14.6770652 7.96459231,14.4415 8.52677692,13.9722391 Z M2.71133077,7.3193913 L6.06582308,7.3193913 C7.01613846,7.3193913 7.74213846,7.096913 8.24103077,6.6510217 C8.74178462,6.2060652 8.9903,5.5835 8.9903,4.7870652 C8.9903,4.0074565 8.74178462,3.3942391 8.24103077,2.9483478 C7.74213846,2.5033913 6.98449231,2.2790435 5.97088462,2.2790435 L2.71133077,2.2790435 L2.71133077,7.3193913 Z M11.2148385,9.6834565 C11.8412462,10.4490435 12.1539846,11.3417609 12.1539846,12.3606739 C12.1539846,13.7609783 11.6867385,14.8724348 10.7513154,15.6922391 C9.81496154,16.5120435 8.45976154,16.9233478 6.68385385,16.9233478 L0,16.9233478 L0,0.0589348 L6.56471538,0.0589348 C8.24475385,0.0589348 9.53386923,0.436587 10.4302,1.1918913 C11.3256,1.95 11.7733,2.9885435 11.7733,4.3084565 C11.7733,5.376913 11.4959308,6.2406522 10.9411923,6.9015435 C10.3855231,7.5624348 9.65673077,8.004587 8.75295385,8.2270652 C9.76749231,8.434587 10.5884308,8.9206739 11.2148385,9.6834565 Z" id="Shape"></path>
+                                            <path d="M23.2007947,11.1026464 L20.4995484,3.0324324 L17.7992053,11.1026464 L23.2007947,11.1026464 Z M23.9386477,13.2563626 L17.0613523,13.2563626 L15.81504,17 L13,17 L18.9994581,0 L22.02312,0 L28,17 L25.18496,17 L23.9386477,13.2563626 Z" id="Shape"></path>
+                                            <polyline id="Path" points="35.4 8.403 43 17 39.603 17 32.786 9.124 32.786 17 30 17 30 0 32.786 0 32.786 7.777 39.627 0 43 0 35.4 8.403"></polyline>
+                                            <polyline id="Path" points="47.822 2.213 47.822 7.367 54.257 7.367 54.257 9.487 47.822 9.487 47.822 14.76 55 14.76 55 17 45 17 45 0 55 0 55 2.213 47.822 2.213"></polyline>
+                                        </g>
+                                    </g>
+                                </g>
+                                <path d="M2.71133077,40.353617 L14.0806769,40.353617 L14.0806769,28.9182979 L2.71133077,28.9182979 L2.71133077,40.353617 Z M0,43.081617 L16.7920077,43.081617 L16.7920077,26.1921702 L0,26.1921702 L0,43.081617 Z" id="Shape" fill="#1A1919" fill-rule="nonzero"></path>
+                                <polygon id="Path" fill="#1A1919" fill-rule="nonzero" points="70 17 87 17 87 0 70 0"></polygon>
+                                <polygon id="Path" fill="#1A1919" fill-rule="nonzero" points="95 17 112 17 112 0 95 0"></polygon>
+                                <polygon id="Path" fill="#1A1919" fill-rule="nonzero" points="66 69 83 69 83 52 66 52"></polygon>
+                            </g>
+                        </g>
+                    </svg>
+                </div>
+                <div class="hero-image"></div>
+            </section>
+        </header>
+        <main>
+            <article class="text-info">
+                <h2>Coming<br>Soon</h2>
+                <p>Hello friends! We are currently building our new website. Add your email address below to stay up-to-date.</p>
+                <section class = "email-signup">
+                    <form>
+                        <input class="email-input" type="email" required placeholder="Email Address" name="email-address">
+                        <input class="email-submit" value="Go" type="submit" text="Go" for="email-address"></input>
+                    </form>
+                </section>
+            </article>
+        </main>
+    </div>
+    <div class="hero-image-desktop">
+        <img src="/images/black.jpg" alt="Black shape">
+    </div>
+</body>
+</html>
